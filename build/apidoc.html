@@ -1,0 +1,313 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="http://emberjs.com/"
+
+    >ember-source (v2.12.1)</a>
+</h1>
+<h4>A JavaScript framework for creating ambitious web applications</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ember-source">module ember-source</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ember-source.init">
+            function <span class="apidocSignatureSpan">ember-source.</span>init
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ember-source.treeForVendor">
+            function <span class="apidocSignatureSpan">ember-source.</span>treeForVendor
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ember-source.</span>absolutePaths</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ember-source.</span>index</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ember-source.</span>paths</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">ember-source.</span>name</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ember-source.index">module ember-source.index</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ember-source.index.init">
+            function <span class="apidocSignatureSpan">ember-source.index.</span>init
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ember-source.index.treeForVendor">
+            function <span class="apidocSignatureSpan">ember-source.index.</span>treeForVendor
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ember-source.index.</span>absolutePaths</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ember-source.index.</span>paths</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">ember-source.index.</span>name</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ember-source" id="apidoc.module.ember-source">module ember-source</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ember-source.init" id="apidoc.element.ember-source.init">
+        function <span class="apidocSignatureSpan">ember-source.</span>init
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function () {
+		this._super.init &#x26;&#x26; this._super.init.apply(this, arguments);
+  if (&#x27;ember&#x27; in this.project.bowerDependencies()) {
+    // TODO: move this to a throw soon.
+    this.ui.writeWarnLine(&#x27;Ember.js is now provided by node_module `ember-source`, please remove it from bower&#x27;);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ember-source.treeForVendor" id="apidoc.element.ember-source.treeForVendor">
+        function <span class="apidocSignatureSpan">ember-source.</span>treeForVendor
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">treeForVendor = function () {
+  var Funnel = require(&#x27;broccoli-funnel&#x27;);
+  var MergeTrees = require(&#x27;broccoli-merge-trees&#x27;);
+
+  var jqueryPath;
+  try {
+    jqueryPath = path.dirname(resolve.sync(&#x27;jquery/package.json&#x27;, { basedir: this.project.root }));
+  } catch (error) {
+    jqueryPath = path.dirname(require.resolve(&#x27;jquery/package.json&#x27;));
+  }
+
+  var jquery = new Funnel(jqueryPath + &#x27;/dist&#x27;, {
+    destDir: &#x27;ember/jquery&#x27;,
+    files: [ &#x27;jquery.js&#x27; ]
+  });
+
+  var emberFiles = [
+    &#x27;ember-runtime.js&#x27;,
+    &#x27;ember-template-compiler.js&#x27;,
+    &#x27;ember-testing.js&#x27;,
+    &#x27;ember.debug.js&#x27;,
+    &#x27;ember.min.js&#x27;,
+    &#x27;ember.prod.js&#x27;
+  ].filter(function(file) {
+    var fullPath = path.join(__dirname, &#x27;dist&#x27;, file);
+
+    return fs.existsSync(fullPath);
+  });
+
+  var ember = new Funnel(__dirname + &#x27;/dist&#x27;, {
+    destDir: &#x27;ember&#x27;,
+    files: emberFiles
+  });
+
+  return new MergeTrees([ember, jquery]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ember-source.index" id="apidoc.module.ember-source.index">module ember-source.index</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ember-source.index.init" id="apidoc.element.ember-source.index.init">
+        function <span class="apidocSignatureSpan">ember-source.index.</span>init
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function () {
+		this._super.init &#x26;&#x26; this._super.init.apply(this, arguments);
+  if (&#x27;ember&#x27; in this.project.bowerDependencies()) {
+    // TODO: move this to a throw soon.
+    this.ui.writeWarnLine(&#x27;Ember.js is now provided by node_module `ember-source`, please remove it from bower&#x27;);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ember-source.index.treeForVendor" id="apidoc.element.ember-source.index.treeForVendor">
+        function <span class="apidocSignatureSpan">ember-source.index.</span>treeForVendor
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">treeForVendor = function () {
+  var Funnel = require(&#x27;broccoli-funnel&#x27;);
+  var MergeTrees = require(&#x27;broccoli-merge-trees&#x27;);
+
+  var jqueryPath;
+  try {
+    jqueryPath = path.dirname(resolve.sync(&#x27;jquery/package.json&#x27;, { basedir: this.project.root }));
+  } catch (error) {
+    jqueryPath = path.dirname(require.resolve(&#x27;jquery/package.json&#x27;));
+  }
+
+  var jquery = new Funnel(jqueryPath + &#x27;/dist&#x27;, {
+    destDir: &#x27;ember/jquery&#x27;,
+    files: [ &#x27;jquery.js&#x27; ]
+  });
+
+  var emberFiles = [
+    &#x27;ember-runtime.js&#x27;,
+    &#x27;ember-template-compiler.js&#x27;,
+    &#x27;ember-testing.js&#x27;,
+    &#x27;ember.debug.js&#x27;,
+    &#x27;ember.min.js&#x27;,
+    &#x27;ember.prod.js&#x27;
+  ].filter(function(file) {
+    var fullPath = path.join(__dirname, &#x27;dist&#x27;, file);
+
+    return fs.existsSync(fullPath);
+  });
+
+  var ember = new Funnel(__dirname + &#x27;/dist&#x27;, {
+    destDir: &#x27;ember&#x27;,
+    files: emberFiles
+  });
+
+  return new MergeTrees([ember, jquery]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
